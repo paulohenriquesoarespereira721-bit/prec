@@ -72,7 +72,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
   };
 
   const generateTagCode = (tagId: string) => {
-    return `<!-- Google Analytics/Ads Tag -->
+    return `<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=${tagId}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -434,7 +434,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
               />
               <p className="text-sm text-gray-500 mt-1">
-                Cole aqui o ID do seu Google Analytics (G-XXXXXXXXXX) ou Google Ads (AW-XXXXXXXXX)
+                Cole aqui o ID do seu Google tag. Para encontrar, acesse sua conta Google Analytics ou Google Ads e procure pelo ID da tag (formato: G-XXXXXXXXXX para Analytics ou AW-XXXXXXXXX para Ads)
               </p>
             </div>
 
@@ -534,12 +534,12 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
               <textarea
                 value={eventSnippet}
                 onChange={(e) => setEventSnippet(e.target.value)}
-                placeholder="Cole aqui o código do snippet de evento do Google (ex: gtag('event', 'conversion', {...}))"
+                placeholder="Ex: gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXX'});"
                 rows={8}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-mono text-sm"
               />
               <p className="text-sm text-gray-500 mt-1">
-                Cole o código completo do snippet de evento do Google Ads ou Analytics
+                Cole o snippet de evento gerado pelo Google Ads ou Google Analytics. Este código será adicionado na página de conversão (página de agradecimento/sucesso) para rastrear conversões.
               </p>
             </div>
 
@@ -586,16 +586,32 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         )}
 
         {/* Instruções */}
-        <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h3 className="text-lg font-bold text-blue-800 mb-3">
-            📋 Como Tornar as Tags Permanentes:
-          </h3>
-          <ol className="text-sm text-blue-700 space-y-2">
-            <li><strong>1.</strong> Configure suas tags nas abas acima</li>
-            <li><strong>2.</strong> Clique em "Baixar index.html" para obter o arquivo atualizado</li>
-            <li><strong>3.</strong> Substitua o arquivo index.html original no seu servidor</li>
-            <li><strong>4.</strong> As tags agora estarão permanentes no site!</li>
-          </ol>
+        <div className="mt-8 space-y-4">
+          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 className="text-lg font-bold text-blue-800 mb-3">
+              📋 Como Instalar a Tag do Google:
+            </h3>
+            <ol className="text-sm text-blue-700 space-y-2">
+              <li><strong>1.</strong> Obtenha seu ID da tag do Google (G-XXXXXXXXXX ou AW-XXXXXXXXX) de sua conta Google Analytics ou Google Ads</li>
+              <li><strong>2.</strong> Cole o ID na aba "Google Analytics" acima</li>
+              <li><strong>3.</strong> Clique em "Preparar Tag"</li>
+              <li><strong>4.</strong> Clique em "Baixar index.html" para obter o arquivo atualizado</li>
+              <li><strong>5.</strong> Substitua o arquivo index.html original no seu servidor</li>
+              <li><strong>6.</strong> A tag estará ativa em todas as páginas do seu site!</li>
+            </ol>
+          </div>
+
+          <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 className="text-lg font-bold text-yellow-800 mb-3">
+              📌 Para Conversões (Google Ads):
+            </h3>
+            <p className="text-sm text-yellow-700 mb-2">
+              Se você está usando Google Ads e quer rastrear conversões, você também precisa adicionar um snippet de evento na página de conversão (página de agradecimento/sucesso).
+            </p>
+            <p className="text-sm text-yellow-700 font-mono bg-white p-2 rounded border border-yellow-300 mt-2">
+              Use a aba "Eventos Google" para adicionar o snippet de evento de conversão.
+            </p>
+          </div>
         </div>
       </div>
     </div>
