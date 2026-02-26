@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import AdminAccess from './AdminAccess';
 
 export const Footer: React.FC = () => {
@@ -61,15 +61,6 @@ export const Footer: React.FC = () => {
                   <p className="text-gray-300 leading-relaxed mb-6">{section.content}</p>
                   {section.social && (
                     <div className="flex space-x-4">
-                      <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 transform hover:-translate-y-1">
-                        <Facebook size={20} />
-                      </a>
-                      <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 transform hover:-translate-y-1">
-                        <Instagram size={20} />
-                      </a>
-                      <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all duration-300 transform hover:-translate-y-1">
-                        <MessageCircle size={20} />
-                      </a>
                       <AdminAccess />
                     </div>
                   )}
