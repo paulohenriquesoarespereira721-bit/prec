@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             className="text-2xl font-bold text-white cursor-pointer transition-all duration-300 hover:text-secondary"
             onClick={() => scrollToSection('home')}
           >
-            Cem <span className="text-secondary">Entulhos</span>
+            Cacamba <span className="text-secondary">Pereira</span>
           </div>
 
           {/* Desktop Navigation */}
